@@ -35,7 +35,7 @@ class DebugMaskingTests: XCTestCase {
         )
         
         XCTAssertEqual(maskDictionary["some"] as? String, "simple")
-        XCTAssertEqual(maskDictionary["integer"] as? String, "123")
+        XCTAssertEqual(maskDictionary["integer"] as? Int, 123)
         XCTAssertEqual(maskDictionary["replaced"] as? String, "---")
         XCTAssertNil(maskDictionary["null"])
         XCTAssertEqual((maskDictionary["dictionary"] as? [String: String])?["email"], "bvku***@unlocka***.nl")
@@ -103,6 +103,6 @@ class DebugMaskingTests: XCTestCase {
         let password = "abc123"
         
         let masking = DebugMasking(config: .init(maskString: "###"))
-        XCTAssertEqual(masking.mask(password, type: .masked), "###")
+        XCTAssertEqual(masking.mask(password, type: .masked) as? String, "###")
     }
 }

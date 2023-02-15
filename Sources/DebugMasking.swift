@@ -42,7 +42,7 @@ public class DebugMasking {
         return logDictionary
     }
     
-    public func mask(_ value: Any?, type: MaskOption) -> String? {
+    public func mask(_ value: Any?, type: MaskOption) -> Any? {
         guard let value else {
             return nil
         }
@@ -85,7 +85,7 @@ public class DebugMasking {
                 return stringValue
             }
         case .default:
-            return "\(value)"
+            return value
         }
     }
     
